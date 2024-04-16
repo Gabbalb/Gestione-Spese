@@ -18,7 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
     echo $template->render('login', [
 
     ]);
-    exit(0);
     exit(0); // Assicura che lo script termini dopo il reindirizzamento
 }
 
