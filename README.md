@@ -2,7 +2,7 @@
 Sito Web con DataBase per la gestione delle spese di ciascun utente tramite note spese
 
 ## Progettazione
-Questo progetto è stato organizzato con il supporto amminitrativo di ClickUp con sudivisione del lavoro e report degli errori
+Questo progetto è stato organizzato con il supporto amminitrativo di ClickUp con suddivisione del carico di lavoro e report degli errori
 (Immagine in ClickUp.png)
 
 ## Architettura
@@ -19,7 +19,7 @@ composer require League/Plates
  Questa libreria permette il rendering di vari templates (file `.tpl`) a seconda della pagina che ci serve
 
  ### Autenticazione
- L'autenticazione la abbiamo gestita con delle sessioni in PHP e i dati li abbiamo salvati in un database in cui la password non è in chiaro
+ L'autenticazione la abbiamo gestita con delle sessioni in PHP e i dati sono abbiamo salvati in un database in cui la password non è in chiaro
 
 
 ## Database
