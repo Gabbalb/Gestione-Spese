@@ -30,5 +30,5 @@ Il database è di tipo SQL è formato da 3 tabelle
 
 ### Diagramma ER
 ```
-[Users] --- 1N --- [Note] --- 11 --- [Tipologia]
+[Permessi] --- 11 --- [Users] --- 1N --- [Note] --- 11 --- [Tipologia]
 ```
