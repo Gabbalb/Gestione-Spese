@@ -11,7 +11,7 @@ Questo progetto è stato organizzato con il supporto amminitrativo di ClickUp co
 Abbiamo utilizzato PHP per la gestione delle spese lato server e il render delle pagine.
 Nello specifico abbiamo utilizzato la libreria `League/Plates` che abbiamo installato tramite `composer`
 Per installare tutto il pacchetto il comando è:
-\
+
 ```
 composer require League/Plates
 ```
