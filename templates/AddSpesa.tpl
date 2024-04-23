@@ -75,6 +75,12 @@
             <div class="form-group">
                 <label for="tipologia">Tipologia della spesa</label>
                 <select class="form-select" id="tipologia" name="tipologia">
+                        <option value="1">Hotel</option>
+                        <option value="2">Cibo</option>
+                        <option value="3">Carburante</option>
+                        <option value="4">Trasporto</option>
+                        <option value="5">Cancelleria</option>
+                        <option value="6">Extra</option>
                     <!-- Opzioni della dropdown caricate dal database -->
                 </select>
             </div>
