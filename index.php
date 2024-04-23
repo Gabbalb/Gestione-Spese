@@ -17,7 +17,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $_SESSION['username'] = $username;
 
         // Reindirizza alla stessa pagina
-        echo $template->render('success', [
+        echo $template->render('lista', [
             'username' => $username
         ]);
         exit(0);

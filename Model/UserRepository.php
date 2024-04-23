@@ -15,7 +15,7 @@ class UserRepository
     {
         $pdo = Connection::getInstance();
         $sql = 'SELECT password, username
-            FROM user 
+            FROM users 
             WHERE username = :username';
         $stmt = $pdo->prepare($sql);
         $stmt->execute(['username' => $username]);
@@ -36,16 +36,18 @@ class UserRepository
 
 
 
-    public static function registrazione($email, $username, $password)
+    public static function registrazione($email, $username, $password, $type)
     {
         $pdo = Connection::getInstance();
-        $sql = 'INSERT INTO user(username, password, email) 
-            VALUES (:username, :password, :email)';
+        $sql = 'INSERT INTO users(username, password, mail, id_permesso) 
+            VALUES (:username, :password, :email, :type)';
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             ':email' => $email,
             ':username' => $username,
-            ':password' => $password
+            ':password' => $password,
+            ':type' => $type
+
         ]);
 
     }

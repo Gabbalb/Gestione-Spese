@@ -16,6 +16,6 @@ if (isset($_GET['action'])){
     }
 }
 
-echo $template->render('success', [
+echo $template->render('lista', [
 
 ]);

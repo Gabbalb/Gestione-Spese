@@ -31,6 +31,7 @@
         input[type="email"],
         input[type="text"],
         input[type="password"],
+        select, /* Added select here */
         button {
             width: calc(100% - 20px);
             padding: 10px;
@@ -55,9 +56,10 @@
             background-color: #0056b3;
         }
 
-        input[type="email"]:focus
+        input[type="email"]:focus,
         input[type="text"]:focus,
-        input[type="password"]:focus {
+        input[type="password"]:focus,
+        select:focus { /* Added select here */
             outline: none;
             border-color: #007bff;
             box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
@@ -78,9 +80,15 @@
         <input type="email" name="email" placeholder="Email">
         <input type="text" name="username" placeholder="Username">
         <input type="password" name="password" placeholder="Password">
+        <select name="type">
+            <option value="1">Administrator</option>
+            <option value="2">Capo Gruppo</option>
+            <option value="3">Utente</option>
+        </select>
         <button type="submit" name="register">Registrati</button>
         <p>Hai un account? <a href="index.php">Accedi</a></p>
-        </form>
+    </form>
 </div>
+
 </body>
 </html>
