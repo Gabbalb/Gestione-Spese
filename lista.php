@@ -22,12 +22,6 @@ if (isset($_POST['descrizione'])) {
             'id_tipo' => $id_tipo
         ]);
         exit(0);
-    } else {
-        // Se le credenziali non sono corrette, mostra un messaggio di errore
-        echo $template->render('login', [
-            'error' => 'Credenziali non valide. Riprova.'
-        ]);
-        exit();
     }
 }
 
