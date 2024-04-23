@@ -5,7 +5,7 @@ use Util\Connection;
 
 class NoteRepository
 {
-    public static function aggiungiSpesa($descrizione, $data, $importo, $id_tipo):
+    public static function aggiungiSpesa($descrizione, $data, $importo, $id_tipo)
     {
         $pdo = Connection::getInstance();
         $sql = 'INSERT INTO note(descrizione, data, importo, id_tipo) 
@@ -14,7 +14,8 @@ class NoteRepository
         $stmt->execute([
             ':descrizione' => $descrizione,
             ':data' => $data,
-            ':importo' => $importo
+            ':importo' => $importo,
+            ':id_tipo' => $id_tipo
 
         ]);
     }

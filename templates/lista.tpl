@@ -81,7 +81,7 @@
 
             </tbody>
         </table>
-        <button class="btn btn-primary btn-add-row">Add Row</button>
+        <p><a href="aggiungiSpesa.php">Aggiungi spesa</a></p>
     </div>
 </div>
 
