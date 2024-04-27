@@ -77,7 +77,6 @@
         <input type="password" name="password" placeholder="Password">
         <button type="submit" name="login">Login</button>
         <!-- Testo per chi non ha un account -->
-        <p>Non hai un account? <a href="registrazione.php">Registrati qui</a></p>
         <?php if(isset($error)): ?>
         <p class="error-message"><?= $error ?></p>
         <?php endif; ?>

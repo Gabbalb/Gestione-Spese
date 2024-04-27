@@ -11,10 +11,10 @@ class UserRepository
         if (session_id() == "")
             session_start();
     }
-    public static function verificaCredenziali($username, $password): bool
+ /*   public static function verificaCredenziali($username, $password): bool
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT password, username
+        $sql = 'SELECT password, username, id_permesso
             FROM users 
             WHERE username = :username';
         $stmt = $pdo->prepare($sql);
@@ -31,6 +31,35 @@ class UserRepository
             return true;
         } else {
             return false;
+        }
+    }
+*/
+
+    public static function verificaCredenziali($username, $password): array
+    {
+        $pdo = Connection::getInstance();
+        $sql = 'SELECT password, username, id_permesso
+            FROM users 
+            WHERE username = :username';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(['username' => $username]);
+        $result = $stmt->fetch();
+
+        // Inizializza il valore di default per id_permesso
+        $idPermesso = null;
+
+        // Se non viene trovato alcun utente con lo username fornito
+        if (!$result) {
+            return ['success' => false, 'id_permesso' => $idPermesso];
+        }
+
+        // Verifica se la password fornita corrisponde all'hash memorizzato nel database
+        if (password_verify($password, $result['password'])) {
+            // Assegna id_permesso se la password è corretta
+            $idPermesso = $result['id_permesso'];
+            return ['success' => true, 'id_permesso' => $idPermesso];
+        } else {
+            return ['success' => false, 'id_permesso' => $idPermesso];
         }
     }
 

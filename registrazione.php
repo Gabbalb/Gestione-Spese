@@ -23,3 +23,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
 }
 
 echo $template->render('registrazione', []);
+

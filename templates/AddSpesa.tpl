@@ -87,6 +87,7 @@
             <button type="submit" class="btn btn-primary">Aggiungi Spesa</button>
             <button type="button" class="btn btn-link">Aggiungi Tipologia</button>
         </form>
+        <p>Non hai un account? <a href="registrazione.php">Registrati qui</a></p>
     </div>
 </div>
 
