@@ -64,11 +64,12 @@
     </div>
     <div class="profile">
         <h3>Ciao <?=$username?></h3>
+        <a href="index.php?action=logout">
         <button class="btn btn-action tooltip tooltip-bottom" data-tooltip="Logout">
-            <a href="index.php?action=logout">
+
                 <i class="icon icon-share"></i>
-            </a>
-        </button>
+
+        </button></a>
     </div>
 </div>
 <div class="grid grid-cols-4 gap-4 place-content-center">
@@ -79,6 +80,9 @@
             <p>Utenti</p>
             <div class="card-actions">
                 <a href="registrazione.php?acrtion=regisrazione"><button class="btn btn-primary">Aggiungi Utente</button></a>
+            </div>
+            <div class="card-actions">
+                <a href="visualizza.php?query=1"><button class="btn btn-primary">Visualizza Utenti</button></a>
             </div>
         </div>
     </div>

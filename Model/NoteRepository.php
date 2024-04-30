@@ -32,4 +32,18 @@ class NoteRepository
 
     }
 
+    public static function query1()
+    {
+        $pdo = Connection::getInstance();
+        $sql = 'SELECT * FROM users;';
+        $result = $pdo->query($sql);
+        return $result->fetchAll();
+    }
+
+    public static function query2(){
+        $pdo = Connection::getInstance();
+        $sql = 'SELECT * FROM note';
+        $result = $pdo->query($sql);
+        return $result->fetchAll();
+    }
 }

@@ -46,8 +46,3 @@ if (isset($_GET['action'])){
         exit(0);
     }
 }
-
-
-echo $template->render('listaAdmin', [
-
-]);
