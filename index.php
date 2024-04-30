@@ -24,7 +24,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         if ($_SESSION['id_permesso'] == 1) {
             // Renderizza la pagina per l'admin
             echo $template->render('listaAdmin', [
-                'username' => $username,
+                'username' => $username
             ]);
             exit(0);
         } else {
