@@ -20,4 +20,16 @@ class NoteRepository
         ]);
     }
 
+    public static function listAll($id)
+    {
+        $pdo = Connection::getInstance();
+        $sql = 'SELECT * FROM note WHERE id_user = :id_user';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
+            ':id_tipo' => $id
+        ]);
+        return $stmt->fetchAll();
+
+    }
+
 }
