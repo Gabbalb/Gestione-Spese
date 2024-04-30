@@ -65,7 +65,7 @@
     <div class="profile">
         <h3>Ciao <?=$username?></h3>
         <button class="btn btn-action tooltip tooltip-bottom" data-tooltip="Logout">
-            <a href="success.php?action=logout">
+            <a href="index.php?action=logout">
                 <i class="icon icon-share"></i>
             </a>
         </button>
