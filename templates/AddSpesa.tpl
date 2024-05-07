@@ -51,7 +51,7 @@
     <div class="profile">
         <h3>Ciao <?=$username?></h3>
         <button class="btn btn-action tooltip tooltip-bottom" data-tooltip="Logout">
-            <a href="success.php?action=logout">
+            <a href="index.php?action=logout">
                 <i class="icon icon-share"></i>
             </a>
         </button>
@@ -59,7 +59,7 @@
 </div>
 <div class="container">
     <div class="form-wrapper">
-        <form>
+        <form method="post">
             <div class="form-group">
                 <label for="descrizione">Descrizione della spesa</label>
                 <input type="text" class="form-input" id="descrizione" name="descrizione" required>
@@ -87,7 +87,7 @@
             <button type="submit" class="btn btn-primary">Aggiungi Spesa</button>
             <button type="button" class="btn btn-link">Aggiungi Tipologia</button>
         </form>
-        <p>Non hai un account? <a href="lista.php?action=back">Torna alla lista</a></p>
+        <p><-- <a href="lista.php?action=back">Torna alla lista</a></p>
     </div>
 </div>
 

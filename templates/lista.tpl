@@ -59,7 +59,7 @@
     <div class="profile">
         <h3>Ciao <?=$username?></h3>
         <button class="btn btn-action tooltip tooltip-bottom" data-tooltip="Logout">
-            <a href="success.php?action=logout">
+            <a href="index.php?action=logout">
                 <i class="icon icon-share"></i>
             </a>
         </button>
@@ -71,7 +71,7 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>Descizione</th>
+                <th>Descrizione</th>
                 <th>Data</th>
                 <th>Importo</th>
                 <th>Tipo</th>
@@ -79,11 +79,28 @@
             </thead>
             <tbody id="table-body">
 
+            <!-- Nuove spese aggiunte -->
+            <?php if(isset($spese) && is_array($spese) && count($spese) > 0): ?>
+            <?php foreach ($spese as $s): ?>
+            <tr>
+                <td></td>
+                <td><?= $s['descrizione'] ?></td>
+                <td><?= $s['date'] ?></td>
+                <td><?= $s['importo'] ?></td>
+                <td><?= $s['Id_tipo'] ?></td>
+            </tr>
+            <?php endforeach; ?>
+            <?php else: ?>
+            <tr>
+                <td colspan="5">Nessuna spesa disponibile.</td>
+            </tr>
+            <?php endif; ?>
             </tbody>
         </table>
         <p><a href="aggiungiSpesa.php">Aggiungi spesa</a></p>
     </div>
 </div>
+
 
 </body>
 </html>

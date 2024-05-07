@@ -5,32 +5,89 @@ use Util\Connection;
 
 class NoteRepository
 {
-    public static function aggiungiSpesa($descrizione, $data, $importo, $id_tipo)
+    public static function aggiungiSpesa($descrizione, $data, $importo, $id_user, $id_tipo): void
     {
-        $pdo = Connection::getInstance();
-        $sql = 'INSERT INTO note(descrizione, data, importo, id_tipo) 
-            VALUES (:descrizione, :data, :importo, :id_tipo)';
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([
-            ':descrizione' => $descrizione,
-            ':data' => $data,
-            ':importo' => $importo,
-            ':id_tipo' => $id_tipo
+        try {
+            $pdo = Connection::getInstance();
 
-        ]);
+            // Verifica se l'utente con l'ID fornito esiste nel database
+            $userExists = \Model\UserRepository::userExists($id_user);
+
+            if (!$userExists) {
+                // Gestisci il caso in cui l'utente non esiste nel database
+                throw new Exception("L'utente con l'ID $id_user non esiste nel database.");
+            }
+
+            // Assicurati che i nomi delle colonne siano corretti nel tuo schema del database
+            $sql = 'INSERT INTO note (descrizione, date, importo, Id_user, Id_tipo) 
+                VALUES (:descrizione, :data, :importo, :id_user, :id_tipo)';
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([
+                'descrizione' => $descrizione,
+                'data' => $data,
+                'importo' => $importo,
+                'id_user' => $id_user, // Aggiunto l'ID utente come parametro della query
+                'id_tipo' => $id_tipo
+            ]);
+        } catch (PDOException $e) {
+            // Gestione degli errori di PDO
+            error_log("Errore durante l'esecuzione della query: " . $e->getMessage());
+            throw new Exception("Errore durante l'esecuzione della query.");
+        } catch (Exception $e) {
+            // Gestione degli altri tipi di errori
+            error_log("Errore: " . $e->getMessage());
+            throw $e;
+        }
     }
 
-    public static function listAll($id)
-    {
-        $pdo = Connection::getInstance();
-        $sql = 'SELECT * FROM note WHERE id_user = :id_user';
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([
-            ':id_tipo' => $id
-        ]);
-        return $stmt->fetchAll();
 
+
+    public static function listAll($id): array
+    {
+        try {
+            $pdo = Connection::getInstance();
+            $sql = 'SELECT * FROM note WHERE id_user = :id_user'; // Assicurati che il nome della colonna sia corretto
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(['id_user' => $id]);
+            return $stmt->fetchAll(); // Utilizza PDO::FETCH_ASSOC per ottenere solo un array associativo
+        } catch (PDOException $e) {
+            // Gestione degli errori, ad esempio loggare l'errore e restituire un array vuoto
+            error_log("Errore durante il recupero delle spese dell'utente: " . $e->getMessage());
+            return []; // Restituisce un array vuoto in caso di errore
+        }
     }
+
+
+    public static function getSpeseByIdUtente($id_utente): array
+    {
+        try {
+            $pdo = Connection::getInstance();
+
+            // Verifica se l'utente con l'ID fornito ha delle spese nel database
+            $sql = 'SELECT * FROM note WHERE Id_user = :id_utente';
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(['id_utente' => $id_utente]);
+            $spese = $stmt->fetchAll();
+
+            if (!$spese) {
+                // Se l'utente non ha spese, ritorna un array vuoto
+                return [];
+            }
+
+            return $spese;
+        } catch (PDOException $e) {
+            // Gestione degli errori di PDO
+            error_log("Errore durante l'esecuzione della query: " . $e->getMessage());
+            throw new Exception("Errore durante l'esecuzione della query.");
+        } catch (Exception $e) {
+            // Gestione degli altri tipi di errori
+            error_log("Errore: " . $e->getMessage());
+            throw $e;
+        }
+    }
+
+
+
 
     public static function query1()
     {

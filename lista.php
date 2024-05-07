@@ -3,35 +3,19 @@ require 'vendor/autoload.php';
 
 use Model\UserRepository;
 
+session_start();
+
 $template = new League\Plates\Engine('templates', 'tpl');
 
-if (isset($_POST['descrizione'])) {
-    $descrizione = $_POST['descrizione'];
-    $data = $_POST['data'];
-    $importo = $_POST['importo'];
-    $id_tipo = $_POST['id_tipo'];
-
-    if (\Model\NoteRepository::aggiungiSpesa($descrizione, $data, $importo, $id_tipo)) {
-        // Avvia la sessione per memorizzare lo stato di accesso
-        session_start();
-        //lista = listAll()
-        //nel render metti la lista
-
-        echo $template->render('lista', [
-            'descrizione' => $descrizione,
-            'data' => $data,
-            'importo' => $importo,
-            'id_tipo' => $id_tipo
-        ]);
-        exit(0);
-    }
-}
-
+$username = $_SESSION['username'];
+$id = UserRepository::getID($username);
+$spesePrec = \Model\NoteRepository::getSpeseByIdUtente($id);
 
 if (isset($_GET['action'])){
     if (($_GET['action']) == 'back'){
         echo $template->render('lista', [
-
+            'username' => $username,
+            'spesePrec' => $spesePrec
         ]);
         exit(0);
     }
@@ -44,3 +28,7 @@ if (isset($_GET['action'])){
         exit(0);
     }
 }
+
+echo $template->render('lista', [
+   'username' => $username
+]);

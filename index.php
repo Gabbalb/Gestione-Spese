@@ -5,6 +5,7 @@ use Model\UserRepository;
 
 $template = new League\Plates\Engine('templates', 'tpl');
 
+
 // Controlla se sono stati inviati dati dal modulo di accesso
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];

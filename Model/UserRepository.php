@@ -38,7 +38,7 @@ class UserRepository
     public static function verificaCredenziali($username, $password): array
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT password, username, id_permesso
+        $sql = 'SELECT password, username, id_permesso, id
             FROM users 
             WHERE username = :username';
         $stmt = $pdo->prepare($sql);
@@ -90,6 +90,54 @@ class UserRepository
         //Distrugge la sessione sul server
         session_destroy();
     }
+
+
+    /**
+     * Ottiene l'ID dell'utente dalla tabella users basandosi sullo username.
+     *
+     * @param string $username Lo username dell'utente.
+     * @return int|null L'ID dell'utente, o null se non trovato.
+     */
+    public static function getID($username)
+    {
+        try {
+            $pdo = Connection::getInstance();  // Assicurati che Connection::getInstance() restituisca un oggetto PDO
+            $sql = "SELECT id FROM users WHERE username = :username";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(['username' => $username]);
+            $result = $stmt->fetch();
+
+            if ($result) {
+                return (int) $result['id'];  // Cast a int per sicurezza, anche se le funzioni di fetch di PDO dovrebbero già fornire il tipo corretto.
+            } else {
+                return null;  // Nessun utente trovato con quel username
+            }
+        } catch (PDOException $e) {
+            // Log dell'errore
+            // In un'applicazione reale, qui si potrebbe loggare l'errore e/o mostrare un messaggio all'utente
+            error_log("Errore durante la ricerca dell'ID utente: " . $e->getMessage());
+            return null;  // Restituisce null in caso di errore
+        }
+    }
+
+    public static function userExists($id): bool
+    {
+        try {
+            $pdo = Connection::getInstance();
+            $sql = 'SELECT COUNT(*) AS count FROM users WHERE id = :id';
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(['id' => $id]);
+            $result = $stmt->fetch();
+
+            return ($result['count'] > 0); // Restituisce true se l'utente esiste, altrimenti false
+        } catch (PDOException $e) {
+            // Gestione degli errori, ad esempio loggare l'errore e restituire false
+            error_log("Errore durante la verifica dell'esistenza dell'utente: " . $e->getMessage());
+            return false; // Restituisce false in caso di errore
+        }
+    }
+
+
 
 
 
