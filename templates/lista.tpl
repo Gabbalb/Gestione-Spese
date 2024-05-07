@@ -78,9 +78,19 @@
             </tr>
             </thead>
             <tbody id="table-body">
+            <?php if (isset($spesePrec) && is_array($spesePrec) && count($spesePrec) > 0): ?>
+            <?php foreach ($spesePrec as $s): ?>
+            <tr>
+                <td></td>
+                <td><?= $s['descrizione'] ?></td>
+                <td><?= $s['date'] ?></td>
+                <td><?= $s['importo'] ?></td>
+                <td><?= $s['Id_tipo'] ?></td>
+            </tr>
+            <?php endforeach; ?>
+            <?php endif; ?>
 
-            <!-- Nuove spese aggiunte -->
-            <?php if(isset($spese) && is_array($spese) && count($spese) > 0): ?>
+            <?php if (isset($spese) && is_array($spese) && count($spese) > 0): ?>
             <?php foreach ($spese as $s): ?>
             <tr>
                 <td></td>
@@ -90,11 +100,8 @@
                 <td><?= $s['Id_tipo'] ?></td>
             </tr>
             <?php endforeach; ?>
-            <?php else: ?>
-            <tr>
-                <td colspan="5">Nessuna spesa disponibile.</td>
-            </tr>
             <?php endif; ?>
+
             </tbody>
         </table>
         <p><a href="aggiungiSpesa.php">Aggiungi spesa</a></p>

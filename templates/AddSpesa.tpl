@@ -75,21 +75,58 @@
             <div class="form-group">
                 <label for="tipologia">Tipologia della spesa</label>
                 <select class="form-select" id="tipologia" name="tipologia">
-                        <option value="1">Hotel</option>
-                        <option value="2">Cibo</option>
-                        <option value="3">Carburante</option>
-                        <option value="4">Trasporto</option>
-                        <option value="5">Cancelleria</option>
-                        <option value="6">Extra</option>
+                    <?php if (isset($tipologie) && is_array($tipologie) && count($tipologie) > 0): ?>
+                    <?php foreach ($tipologie as $tipologia): ?>
+                    <option><?= $tipologia['nome'] ?></option>
+                    <?php endforeach; ?>
+                    <?php endif; ?>
                     <!-- Opzioni della dropdown caricate dal database -->
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Aggiungi Spesa</button>
-            <button type="button" class="btn btn-link">Aggiungi Tipologia</button>
         </form>
+            <button type="button" class="btn btn-link" onclick="openModal()">Aggiungi Tipologia</button>
+            <!-- Modal per Aggiungi Tipologia -->
+            <div id="modalTipologia" class="modal">
+                <div class="modal-container">
+                    <div class="modal-header">
+                        <div class="modal-title">Aggiungi Nuova Tipologia</div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="content">
+                            <!-- Qui puoi inserire un form o altro contenuto per aggiungere una tipologia -->
+                            <form method="post">
+                                <input type="text" class="form-input" id="new" name="newtipologia" required placeholder="Inserisci una tipologia di spesa">
+                                <button type="submit" class="btn btn-primary">Aggiungi tipologia</button>
+
+                            </form>
+                            <p>Qui inserisci il contenuto per aggiungere una nuova tipologia di spesa.</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" onclick="closeModal()">Chiudi</button>
+                    </div>
+                </div>
+            </div>
+
+
+
         <p><-- <a href="lista.php?action=back">Torna alla lista</a></p>
     </div>
 </div>
+
+<script>
+    function openModal() {
+        document.getElementById('modalTipologia').classList.add('active');
+    }
+
+    function closeModal() {
+        document.getElementById('modalTipologia').classList.remove('active');
+    }
+
+    document.querySelector('.btn-link').addEventListener('click', openModal);
+</script>
+
 
 </body>
 </html>

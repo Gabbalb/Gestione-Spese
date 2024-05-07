@@ -40,6 +40,10 @@ class NoteRepository
         }
     }
 
+    public static function aggiungiTipologia($tipologia): bool
+    {
+
+    }
 
 
     public static function listAll($id): array

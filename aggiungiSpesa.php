@@ -17,6 +17,11 @@ if (!isset($_SESSION['username'])) {
     exit(0);
 }
 
+if (isset($_POST['newtipologia'])){
+    $newtipologia = $_POST['newtipologia'];
+    \Model\TipologiaRepository::aggiungiTipologia($newtipologia);
+}
+
 if (isset($_POST['descrizione'])) {
     $descrizione = $_POST['descrizione'];
     $data = $_POST['data'];
@@ -51,8 +56,10 @@ if (isset($_POST['descrizione'])) {
     exit;
 } else{
     $username = $_SESSION['username'];
+    $tipologie = \Model\TipologiaRepository::listAll();
     echo $template->render('AddSpesa', [
-        'username' => $username
+        'username' => $username,
+        'tipologie' => $tipologie
     ]);
 }
 
