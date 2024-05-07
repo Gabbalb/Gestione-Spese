@@ -57,7 +57,7 @@
 
     </style>
 </head>
-<body>
+<body class="bg-gray-100">
 <div class="navbar">
     <div class="title">
         <h1>Nota Spese Dashboard</h1>
@@ -72,64 +72,7 @@
         </button></a>
     </div>
 </div>
-  <!-- <div class="grid grid-cols-4 gap-4 place-content-center">
-    <div class="card w-96 bg-base-100 shadow-xl place-content-center">
-
-        <div class="card-body items-center text-center">
-            <h1 class="text-5xl text-center card-title">4</h1>
-            <p>Utenti</p>
-            <div class="card-actions">
-                <a href="registrazione.php?acrtion=regisrazione"><button class="btn btn-primary">Aggiungi Utente</button></a>
-            </div>
-            <div class="card-actions">
-                <a href="visualizza.php?query=1"><button class="btn btn-primary">Visualizza Utenti</button></a>
-            </div>
-        </div>
-    </div>
-    <div class="card w-96 bg-base-100 shadow-xl place-content-center">
-
-        <div class="card-body items-center text-center">
-            <h1 class="text-5xl text-center card-title">6</h1>
-            <p>tipologie</p>
-            <div class="card-actions">
-                <button class="btn btn-primary">Aggiungi tipologia spesa</button>
-            </div>
-        </div>
-    </div>
-    <div class="card w-96 bg-base-100 shadow-xl place-content-center">
-
-        <div class="card-body items-center text-center">
-            <h1 class="text-5xl text-center card-title">1500$</h1>
-            <p>Spesa totale mensile</p>
-            <progress class="progress progress-error w-56" value="75" max="100"></progress>
-            <div class="card-actions">
-                <button class="btn btn-primary">Visualizza dettagli</button>
-            </div>
-        </div>
-    </div>
-    <div class="card w-96 bg-base-100 shadow-xl place-content-center">
-
-        <div class="card-body items-center text-center">
-            <h1 class="text-5xl text-center card-title">142</h1>
-            <p>Note</p>
-            <div class="card-actions">
-                <button class="btn btn-primary">Visualizza Note</button>
-            </div>
-        </div>
-    </div>
-    <div class="card w-96 bg-base-100 shadow-xl place-content-center">
-
-        <div class="card-body items-center text-center">
-            <h1 class="text-5xl text-center card-title">10</h1>
-            <p>utenti attivi</p>
-            <div class="card-actions">
-                <button class="btn btn-primary">Buy Now</button>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-<div class="stats shadow">
+ <!-- <div class="stats shadow">
 
     <div class="stat">
         <div class="stat-figure text-secondary">
@@ -171,7 +114,439 @@
         </div>
     </div>
 
-</div>
+</div> -->
+
+<section class="bg-gray-100 ">
+    <div class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+        <div class="mx-auto max-w-3xl text-center">
+            <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">Una dashboard tutta per te...</h2>
+
+            <p class="mt-4 text-gray-500 sm:text-xl">
+                Le spese dei tuoi dipendenti stanno andando così
+            </p>
+        </div>
+
+        <div class="mt-8 sm:mt-12">
+            <dl class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                <div class="flex flex-col rounded-lg bg-blue-50 px-4 py-8 text-center">
+                    <dt class="order-last text-lg font-medium text-gray-500">Utenti</dt>
+
+                    <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl">$4.8m</dd>
+                </div>
+
+                <div class="flex flex-col rounded-lg bg-blue-50 px-4 py-8 text-center">
+                    <dt class="order-last text-lg font-medium text-gray-500">Official Addons</dt>
+
+                    <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl">24</dd>
+                </div>
+
+                <div class="flex flex-col rounded-lg bg-blue-50 px-4 py-8 text-center">
+                    <dt class="order-last text-lg font-medium text-gray-500">Total Addons</dt>
+
+                    <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl">86</dd>
+                </div>
+            </dl>
+        </div>
+    </div>
+</section>
+<section class="container bg-gray-100 grid grid-cols-3  gap-4">
+
+    <!-- spese degli utenti -->
+    <article class="rounded-lg border border-gray-100 bg-white p-6">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm text-gray-500">Profit</p>
+
+                <p class="text-2xl font-medium text-gray-900">$240.94</p>
+            </div>
+
+            <span class="rounded-full bg-blue-100 p-3 text-blue-600">
+      <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+      >
+        <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+        />
+      </svg>
+    </span>
+        </div>
+
+        <div class="mt-1 flex gap-1 text-green-600">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+            >
+                <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                />
+            </svg>
+
+            <p class="flex gap-2 text-xs">
+                <span class="font-medium"> 67.81% </span>
+
+                <span class="text-gray-500"> Since last week </span>
+            </p>
+        </div>
+    </article>
+
+    <article class="rounded-lg border border-gray-100 bg-white p-6">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm text-gray-500">Profit</p>
+
+                <p class="text-2xl font-medium text-gray-900">$240.94</p>
+            </div>
+
+            <span class="rounded-full bg-blue-100 p-3 text-blue-600">
+      <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+      >
+        <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+        />
+      </svg>
+    </span>
+        </div>
+
+        <div class="mt-1 flex gap-1 text-red-600">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+            >
+                <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"
+                />
+            </svg>
+
+            <p class="flex gap-2 text-xs">
+                <span class="font-medium"> 67.81% </span>
+
+                <span class="text-gray-500"> Since last week </span>
+            </p>
+        </div>
+    </article>
+    <article class="rounded-lg border border-gray-100 bg-white p-6">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm text-gray-500">Profit</p>
+
+                <p class="text-2xl font-medium text-gray-900">$240.94</p>
+            </div>
+
+            <span class="rounded-full bg-blue-100 p-3 text-blue-600">
+      <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+      >
+        <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+        />
+      </svg>
+    </span>
+        </div>
+
+        <div class="mt-1 flex gap-1 text-red-600">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+            >
+                <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"
+                />
+            </svg>
+
+            <p class="flex gap-2 text-xs">
+                <span class="font-medium"> 67.81% </span>
+
+                <span class="text-gray-500"> Since last week </span>
+            </p>
+        </div>
+    </article>
+    <article class="rounded-lg border border-gray-100 bg-white p-6">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm text-gray-500">Profit</p>
+
+                <p class="text-2xl font-medium text-gray-900">$240.94</p>
+            </div>
+
+            <span class="rounded-full bg-blue-100 p-3 text-blue-600">
+      <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+      >
+        <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+        />
+      </svg>
+    </span>
+        </div>
+
+        <div class="mt-1 flex gap-1 text-red-600">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+            >
+                <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"
+                />
+            </svg>
+
+            <p class="flex gap-2 text-xs">
+                <span class="font-medium"> 67.81% </span>
+
+                <span class="text-gray-500"> Since last week </span>
+            </p>
+        </div>
+    </article>
+    <article class="rounded-lg border border-gray-100 bg-white p-6">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm text-gray-500">Profit</p>
+
+                <p class="text-2xl font-medium text-gray-900">$240.94</p>
+            </div>
+
+            <span class="rounded-full bg-blue-100 p-3 text-blue-600">
+      <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+      >
+        <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+        />
+      </svg>
+    </span>
+        </div>
+
+        <div class="mt-1 flex gap-1 text-red-600">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+            >
+                <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"
+                />
+            </svg>
+
+            <p class="flex gap-2 text-xs">
+                <span class="font-medium"> 67.81% </span>
+
+                <span class="text-gray-500"> Since last week </span>
+            </p>
+        </div>
+    </article>
+    <article class="rounded-lg border border-gray-100 bg-white p-6">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm text-gray-500">Profit</p>
+
+                <p class="text-2xl font-medium text-gray-900">$240.94</p>
+            </div>
+
+            <span class="rounded-full bg-blue-100 p-3 text-blue-600">
+      <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+      >
+        <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+        />
+      </svg>
+    </span>
+        </div>
+
+        <div class="mt-1 flex gap-1 text-red-600">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+            >
+                <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"
+                />
+            </svg>
+
+            <p class="flex gap-2 text-xs">
+                <span class="font-medium"> 67.81% </span>
+
+                <span class="text-gray-500"> Since last week </span>
+            </p>
+        </div>
+    </article>
+    <article class="rounded-lg border border-gray-100 bg-white p-6">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm text-gray-500">Profit</p>
+
+                <p class="text-2xl font-medium text-gray-900">$240.94</p>
+            </div>
+
+            <span class="rounded-full bg-blue-100 p-3 text-blue-600">
+      <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+      >
+        <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+        />
+      </svg>
+    </span>
+        </div>
+
+        <div class="mt-1 flex gap-1 text-red-600">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+            >
+                <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"
+                />
+            </svg>
+
+            <p class="flex gap-2 text-xs">
+                <span class="font-medium"> 67.81% </span>
+
+                <span class="text-gray-500"> Since last week </span>
+            </p>
+        </div>
+    </article>
+    <article class="rounded-lg border border-gray-100 bg-white p-6">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm text-gray-500">Profit</p>
+
+                <p class="text-2xl font-medium text-gray-900">$240.94</p>
+            </div>
+
+            <span class="rounded-full bg-blue-100 p-3 text-blue-600">
+      <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+      >
+        <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+        />
+      </svg>
+    </span>
+        </div>
+
+        <div class="mt-1 flex gap-1 text-red-600">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+            >
+                <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"
+                />
+            </svg>
+
+            <p class="flex gap-2 text-xs">
+                <span class="font-medium"> 67.81% </span>
+
+                <span class="text-gray-500"> Since last week </span>
+            </p>
+        </div>
+    </article>
+
+</section>
 
 
 
