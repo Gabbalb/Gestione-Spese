@@ -40,10 +40,26 @@ class NoteRepository
         }
     }
 
-    public static function aggiungiTipologia($tipologia): bool
+    public static function rimuoviSpesa($id_spesa): void
     {
+        try {
+            $pdo = Connection::getInstance();
 
+            // Assicurati che i nomi delle colonne siano corretti nel tuo schema del database
+            $sql = 'DELETE FROM gestionespese.note WHERE id = :id_spesa';
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(['id_spesa' => $id_spesa]);
+        } catch (PDOException $e) {
+            // Gestione degli errori di PDO
+            error_log("Errore durante l'esecuzione della query: " . $e->getMessage());
+            throw new Exception("Errore durante l'esecuzione della query.");
+        } catch (Exception $e) {
+            // Gestione degli altri tipi di errori
+            error_log("Errore: " . $e->getMessage());
+            throw $e;
+        }
     }
+
 
 
     public static function listAll($id): array
@@ -79,6 +95,43 @@ class NoteRepository
             }
 
             return $spese;
+        } catch (PDOException $e) {
+            // Gestione degli errori di PDO
+            error_log("Errore durante l'esecuzione della query: " . $e->getMessage());
+            throw new Exception("Errore durante l'esecuzione della query.");
+        } catch (Exception $e) {
+            // Gestione degli altri tipi di errori
+            error_log("Errore: " . $e->getMessage());
+            throw $e;
+        }
+    }
+
+
+    public static function getIDSpesa($descrizione, $data, $importo, $id_user, $id_tipo): ?int
+    {
+        try {
+            $pdo = Connection::getInstance();
+
+            // Assicurati che i nomi delle colonne siano corretti nel tuo schema del database
+            $sql = 'SELECT id FROM gestionespese.note WHERE descrizione = :descrizione 
+                AND date = :data AND importo = :importo 
+                AND Id_user = :id_user AND Id_tipo = :id_tipo';
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([
+                'descrizione' => $descrizione,
+                'data' => $data,
+                'importo' => $importo,
+                'id_user' => $id_user,
+                'id_tipo' => $id_tipo
+            ]);
+
+            $row = $stmt->fetch();
+
+            if ($row) {
+                return $row['id'];
+            } else {
+                return null;
+            }
         } catch (PDOException $e) {
             // Gestione degli errori di PDO
             error_log("Errore durante l'esecuzione della query: " . $e->getMessage());

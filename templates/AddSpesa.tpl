@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Aggiungi Spesa</title>
 
@@ -41,6 +41,49 @@
         .form-wrapper {
             margin-top: 20px;
         }
+        /* CSS per il modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente */
+        }
+        .modal.active {
+            display: block;
+        }
+        .modal-container {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 80%; /* Larghezza massima del modal */
+        }
+        .modal-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .modal-body {
+            padding-bottom: 20px;
+        }
+        .modal-footer {
+            text-align: right;
+        }
+        .modal-footer .btn {
+            margin-left: 10px;
+        }
+        /* CSS per rendere il modal responsive */
+        @media screen and (max-width: 768px) {
+            .modal-container {
+                max-width: 90%; /* Riduci la larghezza massima del modal su schermi più piccoli */
+            }
+        }
+
+
     </style>
 </head>
 <body>
@@ -49,7 +92,7 @@
         <h1>Aggiungi Spesa</h1>
     </div>
     <div class="profile">
-        <h3>Ciao <?=$username?></h3>
+        <h3>Ciao <?= $username ?></h3>
         <button class="btn btn-action tooltip tooltip-bottom" data-tooltip="Logout">
             <a href="index.php?action=logout">
                 <i class="icon icon-share"></i>
@@ -85,33 +128,30 @@
             </div>
             <button type="submit" class="btn btn-primary">Aggiungi Spesa</button>
         </form>
-            <button type="button" class="btn btn-link" onclick="openModal()">Aggiungi Tipologia</button>
-            <!-- Modal per Aggiungi Tipologia -->
-            <div id="modalTipologia" class="modal">
-                <div class="modal-container">
-                    <div class="modal-header">
-                        <div class="modal-title">Aggiungi Nuova Tipologia</div>
-                    </div>
-                    <div class="modal-body">
-                        <div class="content">
-                            <!-- Qui puoi inserire un form o altro contenuto per aggiungere una tipologia -->
-                            <form method="post">
-                                <input type="text" class="form-input" id="new" name="newtipologia" required placeholder="Inserisci una tipologia di spesa">
-                                <button type="submit" class="btn btn-primary">Aggiungi tipologia</button>
-
-                            </form>
-                            <p>Qui inserisci il contenuto per aggiungere una nuova tipologia di spesa.</p>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn" onclick="closeModal()">Chiudi</button>
+        <button type="button" class="btn btn-link" onclick="openModal()">Aggiungi Tipologia</button>
+        <!-- Modal per Aggiungi Tipologia -->
+        <div id="modalTipologia" class="modal">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <div class="modal-title">Aggiungi Nuova Tipologia</div>
+                </div>
+                <div class="modal-body">
+                    <div class="content">
+                        <!-- Contenuto del modal -->
+                        <form method="post">
+                            <input type="text" class="form-input" id="new" name="newtipologia" required
+                                   placeholder="Inserisci una tipologia di spesa">
+                            <br>
+                            <button type="submit" class="btn btn-primary">Aggiungi tipologia</button>
+                        </form>
                     </div>
                 </div>
+                <div class="modal-footer">
+                    <button class="btn" onclick="closeModal()">Chiudi</button>
+                </div>
             </div>
-
-
-
-        <p><-- <a href="lista.php?action=back">Torna alla lista</a></p>
+        </div>
+        <p><a href="lista.php?action=back">Torna alla lista</a></p>
     </div>
 </div>
 
@@ -126,7 +166,6 @@
 
     document.querySelector('.btn-link').addEventListener('click', openModal);
 </script>
-
 
 </body>
 </html>

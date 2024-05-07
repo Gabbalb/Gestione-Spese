@@ -20,14 +20,15 @@ if (isset($_GET['action'])){
         ]);
         exit(0);
     }
-} else{
-    if (($_GET['action']) == 'logout'){
+} else if (($_GET['action']) == 'logout'){
         UserRepository::logout();
         echo $template->render('login', [
 
         ]);
         exit(0);
-    }
+
+} else if (($_GET['action']) == 'delete'){
+
 }
 
 echo $template->render('lista', [

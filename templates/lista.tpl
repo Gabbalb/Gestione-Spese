@@ -70,22 +70,22 @@
         <table class="table table-striped table-hover">
             <thead>
             <tr>
-                <th>#</th>
                 <th>Descrizione</th>
                 <th>Data</th>
                 <th>Importo</th>
                 <th>Tipo</th>
+                <th>Opzioni</th>
             </tr>
             </thead>
             <tbody id="table-body">
             <?php if (isset($spesePrec) && is_array($spesePrec) && count($spesePrec) > 0): ?>
             <?php foreach ($spesePrec as $s): ?>
             <tr>
-                <td></td>
                 <td><?= $s['descrizione'] ?></td>
                 <td><?= $s['date'] ?></td>
                 <td><?= $s['importo'] ?></td>
                 <td><?= $s['Id_tipo'] ?></td>
+                <td><p><a href="lista.php?action=delete">Elimina</p></td>
             </tr>
             <?php endforeach; ?>
             <?php endif; ?>
@@ -93,11 +93,11 @@
             <?php if (isset($spese) && is_array($spese) && count($spese) > 0): ?>
             <?php foreach ($spese as $s): ?>
             <tr>
-                <td></td>
                 <td><?= $s['descrizione'] ?></td>
                 <td><?= $s['date'] ?></td>
                 <td><?= $s['importo'] ?></td>
                 <td><?= $s['Id_tipo'] ?></td>
+                <td><p><a href="lista.php?action=delete">Elimina</p></td>
             </tr>
             <?php endforeach; ?>
             <?php endif; ?>
