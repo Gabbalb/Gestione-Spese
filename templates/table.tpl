@@ -104,5 +104,6 @@
         </tbody>
     </table>
 </div>
+<p><-- <a href="listaAdmin.php?action=back">Torna alla lista</a></p>
 </body>
 </html>
