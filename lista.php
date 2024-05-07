@@ -16,6 +16,7 @@ if (isset($_GET['action'])){
         echo $template->render('lista', [
             'username' => $username,
             'spesePrec' => $spesePrec
+
         ]);
         exit(0);
     }
