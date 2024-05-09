@@ -72,49 +72,6 @@
         </button></a>
     </div>
 </div>
- <!-- <div class="stats shadow">
-
-    <div class="stat">
-        <div class="stat-figure text-secondary">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-        </div>
-        <div class="stat-title">Utenti</div>
-        <div class="stat-value">14</div>
-        <div class="stat-desc">Utenti Registrati</div>
-        <div class="card-actions">
-            <a href="registrazione.php?acrtion=regisrazione"><button class="btn btn-primary">Aggiungi Utente</button></a>
-        </div>
-        <div class="card-actions">
-            <a href="visualizza.php?query=1"><button class="btn btn-primary">Visualizza Utenti</button></a>
-
-        </div>
-    </div>
-
-    <div class="stat">
-        <div class="stat-figure text-secondary">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
-        </div>
-        <div class="stat-title">Tipologie</div>
-        <div class="stat-value">6</div>
-        <div class="stat-desc">tipologie spese</div>
-        <div class="card-actions">
-            <button class="btn btn-primary">Aggiungi tipologia spesa</button>
-        </div>
-    </div>
-
-    <div class="stat">
-        <div class="stat-figure text-secondary">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
-        </div>
-        <div class="stat-title">New Registers</div>
-        <div class="stat-value">1,200</div>
-        <div class="stat-desc">↘︎ 90 (14%)</div>
-        <div class="card-actions">
-            <button class="btn btn-primary">Aggiungi Nuova Registrazione</button>
-        </div>
-    </div>
-
-</div> -->
 
 <section class="bg-gray-100 ">
     <div class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
@@ -152,12 +109,12 @@
 <section class="container bg-gray-100 grid grid-cols-3  gap-4">
 
     <!-- spese degli utenti -->
-    <article class="rounded-lg border border-gray-100 bg-white p-6">
+    <a href="registrazione.php"><article class="rounded-lg border border-gray-100 bg-white p-6">
         <div class="flex items-center justify-between">
             <div>
-                <p class="text-sm text-gray-500">Profit</p>
+                <p class="text-sm text-gray-500">Aggiungi</p>
 
-                <p class="text-2xl font-medium text-gray-900">$240.94</p>
+                <p class="text-2xl font-medium text-gray-900">Nuovo Utente</p>
             </div>
 
             <span class="rounded-full bg-blue-100 p-3 text-blue-600">
@@ -172,42 +129,19 @@
         <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+                d="M20 18L14 18M17 15V21M4 21C4 17.134 7.13401 14 11 14C11.695 14 12.3663 14.1013 13 14.2899M15 7C15 9.20914 13.2091 11 11 11C8.79086 11 7 9.20914 7 7C7 4.79086 8.79086 3 11 3C13.2091 3 15 4.79086 15 7Z"
         />
       </svg>
     </span>
         </div>
+    </article></a> <!--NUOVO UTENTE-->
 
-        <div class="mt-1 flex gap-1 text-green-600">
-            <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-            >
-                <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                />
-            </svg>
-
-            <p class="flex gap-2 text-xs">
-                <span class="font-medium"> 67.81% </span>
-
-                <span class="text-gray-500"> Since last week </span>
-            </p>
-        </div>
-    </article>
-
-    <article class="rounded-lg border border-gray-100 bg-white p-6">
+    <a href="visualizza.php"><article class="rounded-lg border border-gray-100 bg-white p-6">
         <div class="flex items-center justify-between">
             <div>
-                <p class="text-sm text-gray-500">Profit</p>
+                <p class="text-sm text-gray-500">Visualizza</p>
 
-                <p class="text-2xl font-medium text-gray-900">$240.94</p>
+                <p class="text-2xl font-medium text-gray-900">Utenti</p>
             </div>
 
             <span class="rounded-full bg-blue-100 p-3 text-blue-600">
@@ -222,41 +156,28 @@
         <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
-        />
-      </svg>
+                d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z"
+                ></path>
+          <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+
+                  d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"></path>
+          <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z" ></path>
     </span>
         </div>
 
-        <div class="mt-1 flex gap-1 text-red-600">
-            <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-            >
-                <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"
-                />
-            </svg>
+    </article></a> <!--VISUALIZZA UTENTI-->
 
-            <p class="flex gap-2 text-xs">
-                <span class="font-medium"> 67.81% </span>
-
-                <span class="text-gray-500"> Since last week </span>
-            </p>
-        </div>
-    </article>
-    <article class="rounded-lg border border-gray-100 bg-white p-6">
+    <a><article class="rounded-lg border border-gray-100 bg-white p-6">
         <div class="flex items-center justify-between">
             <div>
-                <p class="text-sm text-gray-500">Profit</p>
+                <p class="text-sm text-gray-500">Aggiungi</p>
 
-                <p class="text-2xl font-medium text-gray-900">$240.94</p>
+                <p class="text-2xl font-medium text-gray-900">Tipologia</p>
             </div>
 
             <span class="rounded-full bg-blue-100 p-3 text-blue-600">
@@ -271,8 +192,7 @@
         <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
-        />
+                d="M152,48a12,12,0,0,1-12,12H116a12,12,0,0,1,0-24h24A12,12,0,0,1,152,48ZM140,196H116a12,12,0,0,0,0,24h24a12,12,0,0,0,0-24ZM180,60h16V76a12,12,0,0,0,24,0V56a20.02292,20.02292,0,0,0-20-20H180a12,12,0,0,0,0,24Zm28,43.99951a12,12,0,0,0-12,12v24a12,12,0,0,0,24,0v-24A12,12,0,0,0,208,103.99951Zm-160,48a12,12,0,0,0,12-12v-24a12,12,0,1,0-24,0v24A12,12,0,0,0,48,151.99951ZM76,196H60V180a12,12,0,0,0-24,0v20a20.02292,20.02292,0,0,0,20,20H76a12,12,0,0,0,0-24ZM76,36H56A20.02292,20.02292,0,0,0,36,56V76a12,12,0,0,0,24,0V60H76a12,12,0,0,0,0-24ZM236,196H220V180a12,12,0,0,0-24,0v16H180a12,12,0,0,0,0,24h16v16a12,12,0,0,0,24,0V220h16a12,12,0,0,0,0-24Z"
       </svg>
     </span>
         </div>
@@ -299,7 +219,7 @@
                 <span class="text-gray-500"> Since last week </span>
             </p>
         </div>
-    </article>
+    </article></a> <!--AGGIUNGI TIPOLOGIA-->
     <article class="rounded-lg border border-gray-100 bg-white p-6">
         <div class="flex items-center justify-between">
             <div>
