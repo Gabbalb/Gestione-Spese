@@ -149,7 +149,7 @@ class NoteRepository
     public static function query1()
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT * FROM users;';
+        $sql = 'SELECT id, username, mail, id_permesso FROM users;';
         $result = $pdo->query($sql);
         return $result->fetchAll();
     }
