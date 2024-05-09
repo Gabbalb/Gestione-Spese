@@ -32,8 +32,8 @@ if (isset($_POST['descrizione'])) {
 
 if (isset($_GET['action'])){
     $result = UserRepository::verificaCredenziali($_SESSION['username'],$_SESSION['password']);
-    $_SESSION['id_permesso'] = $result['id_permesso'];
-    if (($_GET['action']) == 'registrazione' AND $_SESSION['id_permesso'] = 1){
+    $id_permesso = $_SESSION['id_permesso'];
+    if (($_GET['action']) == 'registrazione' AND $id_permesso = 1){
         echo $template->render('registrazione', [
 
         ]);
@@ -47,7 +47,7 @@ if (isset($_GET['action'])){
         exit(0);
 
 }else if (($_GET['action']) == 'back'){
-    echo $template->render('login', [
+    echo $template->render('listaAdmin', [
 
     ]);
     exit(0);

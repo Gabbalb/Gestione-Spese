@@ -5,63 +5,49 @@ use Model\UserRepository;
 
 $template = new League\Plates\Engine('templates', 'tpl');
 
-
-// Avvia la sessione per memorizzare lo stato di accesso
 session_start();
 
-// Assicurarsi che l'utente sia loggato prima di procedere
+// Controllo se l'utente è loggato, altrimenti reindirizzo alla pagina di login
 if (!isset($_SESSION['username'])) {
-    echo $template->render('login', [
-        // Redirect verso la pagina di login se non loggato
-    ]);
-    exit(0);
+    header('Location: login.php');
+    exit();
 }
 
-if (isset($_POST['newtipologia'])){
-    $newtipologia = $_POST['newtipologia'];
-    \Model\TipologiaRepository::aggiungiTipologia($newtipologia);
+// Aggiungi una nuova tipologia se è stata inviata
+if (isset($_POST['newtipologia'])) {
+    \Model\TipologiaRepository::aggiungiTipologia($_POST['newtipologia']);
 }
 
-if (isset($_POST['descrizione'])) {
-    $descrizione = $_POST['descrizione'];
-    $data = $_POST['data'];
-    $importo = $_POST['importo'];
-    $id_tipo = $_POST['tipologia'];
-    $username = $_SESSION['username'];
+// Se è stato inviato il modulo per l'aggiunta di una spesa
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['descrizione'])) {
+    try {
+        $username = $_SESSION['username'];
+        $descrizione = $_POST['descrizione'];
+        $data = $_POST['data'];
+        $importo = $_POST['importo'];
+        $id_tipo = $_POST['tipologia'];
 
-    // Ottiene l'ID dell'utente dal repository degli utenti
-    $id = \Model\UserRepository::getID($username);
+        // Ottieni l'ID dell'utente dal repository degli utenti
+        $id = \Model\UserRepository::getID($username);
 
-    if ($id === null) {
-        // Gestisci l'errore se l'ID non viene trovato
-        echo "Errore: utente non trovato.";
-        exit;
+        // Aggiungi la spesa
+        \Model\NoteRepository::aggiungiSpesa($descrizione, $data, $importo, $id, $id_tipo);
+
+        // Redirect alla pagina lista dopo l'aggiunta della spesa
+        header('Location: lista.php');
+        exit();
+    } catch (Exception $e) {
+        // Gestisci eventuali errori
+        echo "Si è verificato un errore durante l'aggiunta della spesa: " . $e->getMessage();
+        exit();
     }
-
-    // Aggiunge la spesa utilizzando l'ID dell'utente
-    \Model\NoteRepository::aggiungiSpesa($descrizione, $data, $importo, $id, $id_tipo);
-
-    // Recupera tutte le spese dell'utente
-    $spese = \Model\NoteRepository::listAll($id);
-
-    if ($spese != false) {
-        // Assumendo che $template sia un oggetto di un motore di template come Twig
-        echo $template->render('lista', [
-            'spese' => $spese,
-            'username' => $username
-        ]);
-    } else {
-        echo "Nessuna spesa trovata.";
-    }
-    exit;
-} else{
-    $username = $_SESSION['username'];
-    $tipologie = \Model\TipologiaRepository::listAll();
-    echo $template->render('AddSpesa', [
-        'username' => $username,
-        'tipologie' => $tipologie
-    ]);
 }
 
+// Se non è stato inviato il modulo, mostra la pagina di aggiunta spesa
+$username = $_SESSION['username'];
+$tipologie = \Model\TipologiaRepository::listAll();
 
-
+echo $template->render('AddSpesa', [
+    'username' => $username,
+    'tipologie' => $tipologie
+]);
