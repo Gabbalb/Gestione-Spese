@@ -61,6 +61,53 @@ class NoteRepository
     }
 
 
+    public static function ModificaSpesa($id_spesa, $descrizione, $data, $importo, $id_user, $id_tipo): void
+    {
+        try {
+            $pdo = Connection::getInstance();
+
+            // Verifica se l'utente con l'ID fornito esiste nel database
+            $userExists = \Model\UserRepository::userExists($id_user);
+            if (!$userExists) {
+                // Gestisci il caso in cui l'utente non esiste nel database
+                throw new Exception("L'utente con l'ID $id_user non esiste nel database.");
+            }
+
+            // Verifica se la spesa da modificare esiste
+            $sql = 'SELECT * FROM gestionespese.note WHERE id = :id_spesa';
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(['id_spesa' => $id_spesa]);
+            $spesa = $stmt->fetch();
+
+            if (!$spesa) {
+                // Gestisci il caso in cui la spesa da modificare non esiste
+                throw new Exception("La spesa con l'ID $id_spesa non esiste nel database.");
+            }
+
+            // Preparazione del comando SQL per l'aggiornamento della spesa esistente
+            $sql = 'UPDATE gestionespese.note SET descrizione = :descrizione, date = :data, importo = :importo, Id_user = :id_user, Id_tipo = :id_tipo WHERE id = :id_spesa';
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([
+                'descrizione' => $descrizione,
+                'data' => $data,
+                'importo' => $importo,
+                'id_user' => $id_user,
+                'id_tipo' => $id_tipo,
+                'id_spesa' => $id_spesa
+            ]);
+        } catch (PDOException $e) {
+            // Gestione degli errori di PDO
+            error_log("Errore durante l'esecuzione della query: " . $e->getMessage());
+            throw new Exception("Errore durante l'esecuzione della query.");
+        } catch (Exception $e) {
+            // Gestione degli altri tipi di errori
+            error_log("Errore: " . $e->getMessage());
+            throw $e;
+        }
+    }
+
+
+
 
     public static function listAll($id): array
     {
@@ -180,6 +227,31 @@ class NoteRepository
         $sql = 'SELECT SUM(importo) AS sommaspese FROM note';
         $result = $pdo->query($sql);
         return $result->fetchColumn();
+    }
+
+
+    /**
+     * Verifica se una spesa esiste nel database.
+     *
+     * @param int $idSpesa L'ID della spesa da verificare.
+     * @param int $idUser L'ID dell'utente associato alla spesa.
+     * @return bool True se la spesa esiste, altrimenti false.
+     */
+    public static function existsSpesa($idSpesa, $idUser) {
+        $pdo = Connection::getInstance();
+
+        $sql = 'SELECT COUNT(*) FROM note 
+                WHERE id = :idSpesa AND Id_user = :idUser';
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
+            'idSpesa' => $idSpesa,
+            'idUser' => $idUser
+        ]);
+
+        $count = $stmt->fetchColumn();
+
+        return ($count > 0);
     }
 
 }

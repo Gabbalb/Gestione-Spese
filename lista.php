@@ -31,7 +31,30 @@ if (isset($_GET['action'])) {
         header('Location: lista.php');
         exit();
     } elseif ($action === 'modify' && isset($_GET['id'])) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['descrizione'])) {
+            try {
+                $descrizione = $_POST['descrizione'];
+                $data = $_POST['data'];
+                $importo = $_POST['importo'];
+                $id_tipo = $_POST['tipologia'];
 
+                // Ottieni l'ID dell'utente dal repository degli utenti
+                $id = \Model\UserRepository::getID($username);
+
+                $idSpesa = \Model\NoteRepository::getIDSpesa($descrizione, $data, $importo, $id, $id_tipo);
+
+                // Modifica la spesa
+                \Model\NoteRepository::ModificaSpesa($idSpesa, $descrizione, $data, $importo, $id, $id_tipo);
+
+                // Redirect alla pagina lista dopo l'aggiunta della spesa
+                header('Location: lista.php');
+                exit();
+            } catch (Exception $e) {
+                // Gestisci eventuali errori
+                echo "Si è verificato un errore durante l'aggiunta della spesa: " . $e->getMessage();
+                exit();
+            }
+        }
     }
 }
 
@@ -41,8 +64,11 @@ if (!isset($_GET['action']) || $_GET['action'] !== 'back') {
     $spesePrec = \Model\NoteRepository::getSpeseByIdUtente($id);
 }
 
+$tipologie = \Model\TipologiaRepository::listAll();
+
 // Passa le variabili al template per il rendering
 echo $template->render('lista', [
     'username' => $username,
-    'spesePrec' => $spesePrec
+    'spesePrec' => $spesePrec,
+    'tipologie' => $tipologie
 ]);

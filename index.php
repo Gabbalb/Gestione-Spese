@@ -47,9 +47,11 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             $username = $_SESSION['username'];
             $id = UserRepository::getID($username);
             $spesePrec = \Model\NoteRepository::listAll($id);
+            $tipologie = \Model\TipologiaRepository::listAll();
             echo $template->render('lista', [
                 'username' => $username,
-                'spesePrec' => $spesePrec
+                'spesePrec' => $spesePrec,
+                'tipologie' => $tipologie
             ]);
             exit(0);
         }

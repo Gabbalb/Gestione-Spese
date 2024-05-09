@@ -116,7 +116,7 @@
         document.getElementById('data').value = data;
         document.getElementById('importo').value = importo;
         document.getElementById('tipologia').value = tipologia;
-        document.getElementById('edit-form').action = 'edit.php?id=' + id;
+        document.getElementById('edit-form').action = 'lista.php?id=' + id;
     }
 
     function closeModal() {
