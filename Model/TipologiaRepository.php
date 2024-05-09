@@ -40,7 +40,7 @@ class TipologiaRepository
     {
         try {
             $pdo = Connection::getInstance();
-            $sql = 'SELECT nome FROM gestionespese.tipologia'; // Assicurati che il nome della colonna sia corretto
+            $sql = 'SELECT nome, id FROM gestionespese.tipologia'; // Assicurati che il nome della colonna sia corretto
             $stmt = $pdo->prepare($sql);
             $stmt->execute([
 

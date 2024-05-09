@@ -30,6 +30,8 @@ if (isset($_GET['action'])) {
         // Dopo aver eliminato la spesa, reindirizza alla pagina corrente per evitare il ri-invio del modulo
         header('Location: lista.php');
         exit();
+    } elseif ($action === 'modify' && isset($_GET['id'])) {
+
     }
 }
 

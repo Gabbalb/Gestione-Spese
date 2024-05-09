@@ -120,7 +120,7 @@
                 <select class="form-select" id="tipologia" name="tipologia">
                     <?php if (isset($tipologie) && is_array($tipologie) && count($tipologie) > 0): ?>
                     <?php foreach ($tipologie as $tipologia): ?>
-                    <option><?= $tipologia['nome'] ?></option>
+                    <option value="<?= $tipologia['id'] ?>"><?= $tipologia['nome'] ?></option>
                     <?php endforeach; ?>
                     <?php endif; ?>
                     <!-- Opzioni della dropdown caricate dal database -->

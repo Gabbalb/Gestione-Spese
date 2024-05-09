@@ -19,7 +19,7 @@ class NoteRepository
             }
 
             // Assicurati che i nomi delle colonne siano corretti nel tuo schema del database
-            $sql = 'INSERT INTO note (descrizione, date, importo, Id_user, Id_tipo) 
+            $sql = 'INSERT INTO gestionespese.note (descrizione, date, importo, Id_user, Id_tipo) 
                 VALUES (:descrizione, :data, :importo, :id_user, :id_tipo)';
             $stmt = $pdo->prepare($sql);
             $stmt->execute([
