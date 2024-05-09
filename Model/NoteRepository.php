@@ -160,4 +160,26 @@ class NoteRepository
         $result = $pdo->query($sql);
         return $result->fetchAll();
     }
+
+    public static function nusers() {
+        $pdo = Connection::getInstance();
+        $sql = 'SELECT COUNT(*) AS count FROM users';
+        $result = $pdo->query($sql);
+        return $result->fetchColumn();
+    }
+
+    public static function nnote() {
+        $pdo = Connection::getInstance();
+        $sql = 'SELECT COUNT(*) AS countnote FROM note';
+        $result = $pdo->query($sql);
+        return $result->fetchColumn();
+    }
+
+    public static function totspese() {
+        $pdo = Connection::getInstance();
+        $sql = 'SELECT SUM(importo) AS sommaspese FROM note';
+        $result = $pdo->query($sql);
+        return $result->fetchColumn();
+    }
+
 }

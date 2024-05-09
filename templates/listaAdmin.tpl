@@ -83,24 +83,26 @@
             </p>
         </div>
 
-        <div class="mt-8 sm:mt-12">
+        <div class="mt-8 sm:mt-12" id="stats">
             <dl class="grid grid-cols-1 gap-4 sm:grid-cols-3">
                 <div class="flex flex-col rounded-lg bg-blue-50 px-4 py-8 text-center">
                     <dt class="order-last text-lg font-medium text-gray-500">Utenti</dt>
 
-                    <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl">$4.8m</dd>
+                    <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl">
+                        <?= $nusers ?>
+                    </dd>
                 </div>
 
                 <div class="flex flex-col rounded-lg bg-blue-50 px-4 py-8 text-center">
-                    <dt class="order-last text-lg font-medium text-gray-500">Official Addons</dt>
+                    <dt class="order-last text-lg font-medium text-gray-500">Note</dt>
 
-                    <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl">24</dd>
+                    <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl"><?= $nnote ?></dd>
                 </div>
 
                 <div class="flex flex-col rounded-lg bg-blue-50 px-4 py-8 text-center">
-                    <dt class="order-last text-lg font-medium text-gray-500">Total Addons</dt>
+                    <dt class="order-last text-lg font-medium text-gray-500">Spesi</dt>
 
-                    <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl">86</dd>
+                    <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl">$ <?= $totspese ?></dd>
                 </div>
             </dl>
         </div>
@@ -172,7 +174,7 @@
 
     </article></a> <!--VISUALIZZA UTENTI-->
 
-    <a><article class="rounded-lg border border-gray-100 bg-white p-6">
+    <a href="aggiungiSpesa.php"><article class="rounded-lg border border-gray-100 bg-white p-6">
         <div class="flex items-center justify-between">
             <div>
                 <p class="text-sm text-gray-500">Aggiungi</p>
@@ -192,279 +194,10 @@
         <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                d="M152,48a12,12,0,0,1-12,12H116a12,12,0,0,1,0-24h24A12,12,0,0,1,152,48ZM140,196H116a12,12,0,0,0,0,24h24a12,12,0,0,0,0-24ZM180,60h16V76a12,12,0,0,0,24,0V56a20.02292,20.02292,0,0,0-20-20H180a12,12,0,0,0,0,24Zm28,43.99951a12,12,0,0,0-12,12v24a12,12,0,0,0,24,0v-24A12,12,0,0,0,208,103.99951Zm-160,48a12,12,0,0,0,12-12v-24a12,12,0,1,0-24,0v24A12,12,0,0,0,48,151.99951ZM76,196H60V180a12,12,0,0,0-24,0v20a20.02292,20.02292,0,0,0,20,20H76a12,12,0,0,0,0-24ZM76,36H56A20.02292,20.02292,0,0,0,36,56V76a12,12,0,0,0,24,0V60H76a12,12,0,0,0,0-24ZM236,196H220V180a12,12,0,0,0-24,0v16H180a12,12,0,0,0,0,24h16v16a12,12,0,0,0,24,0V220h16a12,12,0,0,0,0-24Z"
-      </svg>
-    </span>
+                d="M3 9V19.4C3 19.9601 3 20.2399 3.10899 20.4538C3.20487 20.642 3.35774 20.7952 3.5459 20.8911C3.7596 21 4.0395 21 4.59846 21H15.0001M17 8L13 12L11 10M7 13.8002V6.2002C7 5.08009 7 4.51962 7.21799 4.0918C7.40973 3.71547 7.71547 3.40973 8.0918 3.21799C8.51962 3 9.08009 3 10.2002 3H17.8002C18.9203 3 19.4801 3 19.9079 3.21799C20.2842 3.40973 20.5905 3.71547 20.7822 4.0918C21.0002 4.51962 21.0002 5.07969 21.0002 6.19978L21.0002 13.7998C21.0002 14.9199 21.0002 15.48 20.7822 15.9078C20.5905 16.2841 20.2842 16.5905 19.9079 16.7822C19.4805 17 18.9215 17 17.8036 17H10.1969C9.07899 17 8.5192 17 8.0918 16.7822C7.71547 16.5905 7.40973 16.2842 7.21799 15.9079C7 15.4801 7 14.9203 7 13.8002Z"    </span>
         </div>
 
-        <div class="mt-1 flex gap-1 text-red-600">
-            <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-            >
-                <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"
-                />
-            </svg>
-
-            <p class="flex gap-2 text-xs">
-                <span class="font-medium"> 67.81% </span>
-
-                <span class="text-gray-500"> Since last week </span>
-            </p>
-        </div>
     </article></a> <!--AGGIUNGI TIPOLOGIA-->
-    <article class="rounded-lg border border-gray-100 bg-white p-6">
-        <div class="flex items-center justify-between">
-            <div>
-                <p class="text-sm text-gray-500">Profit</p>
-
-                <p class="text-2xl font-medium text-gray-900">$240.94</p>
-            </div>
-
-            <span class="rounded-full bg-blue-100 p-3 text-blue-600">
-      <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-      >
-        <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
-        />
-      </svg>
-    </span>
-        </div>
-
-        <div class="mt-1 flex gap-1 text-red-600">
-            <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-            >
-                <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"
-                />
-            </svg>
-
-            <p class="flex gap-2 text-xs">
-                <span class="font-medium"> 67.81% </span>
-
-                <span class="text-gray-500"> Since last week </span>
-            </p>
-        </div>
-    </article>
-    <article class="rounded-lg border border-gray-100 bg-white p-6">
-        <div class="flex items-center justify-between">
-            <div>
-                <p class="text-sm text-gray-500">Profit</p>
-
-                <p class="text-2xl font-medium text-gray-900">$240.94</p>
-            </div>
-
-            <span class="rounded-full bg-blue-100 p-3 text-blue-600">
-      <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-      >
-        <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
-        />
-      </svg>
-    </span>
-        </div>
-
-        <div class="mt-1 flex gap-1 text-red-600">
-            <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-            >
-                <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"
-                />
-            </svg>
-
-            <p class="flex gap-2 text-xs">
-                <span class="font-medium"> 67.81% </span>
-
-                <span class="text-gray-500"> Since last week </span>
-            </p>
-        </div>
-    </article>
-    <article class="rounded-lg border border-gray-100 bg-white p-6">
-        <div class="flex items-center justify-between">
-            <div>
-                <p class="text-sm text-gray-500">Profit</p>
-
-                <p class="text-2xl font-medium text-gray-900">$240.94</p>
-            </div>
-
-            <span class="rounded-full bg-blue-100 p-3 text-blue-600">
-      <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-      >
-        <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
-        />
-      </svg>
-    </span>
-        </div>
-
-        <div class="mt-1 flex gap-1 text-red-600">
-            <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-            >
-                <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"
-                />
-            </svg>
-
-            <p class="flex gap-2 text-xs">
-                <span class="font-medium"> 67.81% </span>
-
-                <span class="text-gray-500"> Since last week </span>
-            </p>
-        </div>
-    </article>
-    <article class="rounded-lg border border-gray-100 bg-white p-6">
-        <div class="flex items-center justify-between">
-            <div>
-                <p class="text-sm text-gray-500">Profit</p>
-
-                <p class="text-2xl font-medium text-gray-900">$240.94</p>
-            </div>
-
-            <span class="rounded-full bg-blue-100 p-3 text-blue-600">
-      <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-      >
-        <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
-        />
-      </svg>
-    </span>
-        </div>
-
-        <div class="mt-1 flex gap-1 text-red-600">
-            <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-            >
-                <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"
-                />
-            </svg>
-
-            <p class="flex gap-2 text-xs">
-                <span class="font-medium"> 67.81% </span>
-
-                <span class="text-gray-500"> Since last week </span>
-            </p>
-        </div>
-    </article>
-    <article class="rounded-lg border border-gray-100 bg-white p-6">
-        <div class="flex items-center justify-between">
-            <div>
-                <p class="text-sm text-gray-500">Profit</p>
-
-                <p class="text-2xl font-medium text-gray-900">$240.94</p>
-            </div>
-
-            <span class="rounded-full bg-blue-100 p-3 text-blue-600">
-      <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-      >
-        <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
-        />
-      </svg>
-    </span>
-        </div>
-
-        <div class="mt-1 flex gap-1 text-red-600">
-            <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-            >
-                <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"
-                />
-            </svg>
-
-            <p class="flex gap-2 text-xs">
-                <span class="font-medium"> 67.81% </span>
-
-                <span class="text-gray-500"> Since last week </span>
-            </p>
-        </div>
-    </article>
 
 </section>
 

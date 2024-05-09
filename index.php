@@ -1,7 +1,13 @@
 <?php
 require 'vendor/autoload.php';
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
 use Model\UserRepository;
+use Model\NoteRepository;
 
 $template = new League\Plates\Engine('templates', 'tpl');
 
@@ -13,6 +19,9 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
     // Ottieni il risultato della verifica delle credenziali, che include lo stato di successo e l'id_permesso
     $result = UserRepository::verificaCredenziali($username, $password);
+    $nusers = NoteRepository::nusers();
+    $nnote = NoteRepository::nnote();
+    $totspese = NoteRepository::totspese();
 
     // Se le credenziali sono corrette
     if ($result['success']) {
@@ -26,7 +35,10 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             // Renderizza la pagina per l'admin
             echo $template->render('listaAdmin', [
                 'username' => $username,
-                'id_permesso' => $result['id_permesso']
+                'id_permesso' => $result['id_permesso'],
+                'nusers' => $nusers,
+                'nnote' => $nnote,
+                'totspese' => $totspese
             ]);
             exit(0);
         } else {
