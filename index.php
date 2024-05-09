@@ -17,6 +17,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+
     // Ottieni il risultato della verifica delle credenziali, che include lo stato di successo e l'id_permesso
     $result = UserRepository::verificaCredenziali($username, $password);
     $nusers = NoteRepository::nusers();

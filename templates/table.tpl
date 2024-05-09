@@ -65,6 +65,6 @@
     </div>
 </div>
 
-<p><-- <a href="listaAdmin.php?action=back">Torna alla lista</a></p>
+<p><-- <a href="visualizza.php?action=back">Torna alla lista</a></p>
 </body>
 </html>

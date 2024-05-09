@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="8d1fd989-126d-4408-b3b2-7fa71ed8ef9e" name="Apche" url="http://localhost/lista-spese">
-        <fileTransfer mountedRoot="/Applications/XAMPP/xamppfiles/htdocs/lista-spese" accessType="MOUNT" port="0" />
+      <webServer id="8d1fd989-126d-4408-b3b2-7fa71ed8ef9e" name="Apche" url="http://localhost/">
+        <fileTransfer mountedRoot="C:\Users\Alessandro\Desktop\xampp\htdocs" accessType="MOUNT" port="0" />
       </webServer>
     </option>
   </component>

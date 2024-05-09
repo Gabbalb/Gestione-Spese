@@ -8,6 +8,30 @@ error_reporting(E_ALL);
 
 $template = new \League\Plates\Engine('templates', 'tpl');
 
+session_start();
+
+$nusers = \Model\NoteRepository::nusers();
+$nnote = \Model\NoteRepository::nnote();
+$totspese = \Model\NoteRepository::totspese();
+
+$username = $_SESSION['username'];
+
+
+
+// Check if there's a specific action to perform
+if (isset($_GET['action']) && $_GET['action'] == 'back') {
+    // Render the listaAdmin template when action is 'back'
+    echo $template->render('listaAdmin', [
+        'username' => $username,
+        'nusers' => $nusers,
+        'nnote' => $nnote,
+        'totspese' => $totspese
+
+    ]);
+    exit(0);  // Exit after rendering to stop further script execution
+}
+
+
 if (isset($_GET['query'])){
     $results = null;
     $headers = null;
@@ -26,5 +50,7 @@ if (isset($_GET['query'])){
             'results'=>$results,
             'headers'=>$headers
         ]);
+
 }else
     echo $template->render('404');
+
