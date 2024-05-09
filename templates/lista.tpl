@@ -85,7 +85,7 @@
                 <td><?= $s['date'] ?></td>
                 <td><?= $s['importo'] ?></td>
                 <td><?= $s['Id_tipo'] ?></td>
-                <td><p><a href="lista.php?action=delete">Elimina</p></td>
+                <td><p><a href="lista.php?action=delete&id=<?= $s['id'] ?>">Elimina</p></td>
             </tr>
             <?php endforeach; ?>
             <?php endif; ?>
@@ -97,7 +97,8 @@
                 <td><?= $s['date'] ?></td>
                 <td><?= $s['importo'] ?></td>
                 <td><?= $s['Id_tipo'] ?></td>
-                <td><p><a href="lista.php?action=delete">Elimina</p></td>
+                <td><a href="lista.php?action=delete&id=<?= $s['id'] ?>">Elimina</a></td>
+
             </tr>
             <?php endforeach; ?>
             <?php endif; ?>
