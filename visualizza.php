@@ -37,7 +37,7 @@ if (isset($_GET['query'])){
     $headers = null;
     switch ($_GET['query']){
         case 1:
-            $headers = ['id', 'username', 'mail', 'livello permessi' ];
+            $headers = ['id', 'username', 'mail', 'livello permessi', 'elimina' ];
                     $results = \Model\NoteRepository::query1();
             break;
         case 2:
@@ -46,9 +46,12 @@ if (isset($_GET['query'])){
             break;
     }
     if (!is_null($results))
+        $utenti = \Model\UserRepository::listAll();
         echo $template->render('table', [
             'results'=>$results,
-            'headers'=>$headers
+            'headers'=>$headers,
+            'utenti'=>$utenti
+
         ]);
 
 }else
