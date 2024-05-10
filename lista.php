@@ -10,14 +10,6 @@ $template = new League\Plates\Engine('templates', 'tpl');
 $username = $_SESSION['username'];
 $id = UserRepository::getID($username);
 
-// Carica le spese precedenti solo se necessario
-$spesePrec = null;
-if (!isset($_GET['action']) || $_GET['action'] !== 'back') {
-    $spesePrec = \Model\NoteRepository::getSpeseByIdUtente($id);
-}
-
-$tipologie = \Model\TipologiaRepository::listAll();
-
 // Gestione delle azioni
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -57,8 +49,6 @@ if (isset($_GET['action'])) {
                 // Passa le variabili al template per il rendering
                 echo $template->render('lista', [
                     'username' => $username,
-                    'spesePrec' => $spesePrec,
-                    'tipologie' => $tipologie,
                     'spesaAggiornata' => $spesaAggiornata
                 ]);
 
@@ -72,7 +62,13 @@ if (isset($_GET['action'])) {
     }
 }
 
+// Carica le spese precedenti solo se necessario
+$spesePrec = null;
+if (!isset($_GET['action']) || $_GET['action'] !== 'back') {
+    $spesePrec = \Model\NoteRepository::getSpeseByIdUtente($id);
+}
 
+$tipologie = \Model\TipologiaRepository::listAll();
 
 // Passa le variabili al template per il rendering
 echo $template->render('lista', [

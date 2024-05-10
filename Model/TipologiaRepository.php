@@ -36,6 +36,38 @@ class TipologiaRepository
     }
 
 
+    public static function getTipologiaByID($id): ?string
+    {
+        try {
+            $pdo = Connection::getInstance();
+
+            // Preparazione della query SQL per ottenere il nome della tipologia
+            $sql = 'SELECT nome FROM gestionespese.tipologia WHERE id = :id';
+            $stmt = $pdo->prepare($sql);
+
+            // Esecuzione della query con il parametro 'id'
+            $stmt->execute(['id' => $id]);
+
+            // Estrazione del nome della tipologia
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($result) {
+                return $result['nome'];
+            } else {
+                return null; // Nessuna corrispondenza trovata per l'ID fornito
+            }
+        } catch (PDOException $e) {
+            // Gestione degli errori di PDO
+            error_log("Errore durante l'esecuzione della query: " . $e->getMessage());
+            throw new Exception("Errore durante il recupero della tipologia: " . $e->getMessage());
+        } catch (Exception $e) {
+            // Gestione degli altri tipi di errori
+            error_log("Errore: " . $e->getMessage());
+            throw $e;
+        }
+    }
+
+
+
     public static function listAll(): array
     {
         try {

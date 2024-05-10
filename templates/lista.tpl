@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Nota Spese</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
 </head>
 <body class="bg-gray-100 font-sans leading-normal tracking-normal">
@@ -33,6 +34,20 @@
             </tr>
             </thead>
             <tbody class="text-gray-600 divide-y" id="table-body">
+            <?php
+            // Check if the updated expense data is available
+            if (isset($spesaAggiornata) && is_array($spesaAggiornata) && !empty($spesaAggiornata)): ?>
+            <!-- Render the updated expense details -->
+            <tr>
+                <td class="px-6 py-4 whitespace-nowrap"><?= $spesaAggiornata['descrizione'] ?></td>
+                <td class="px-6 py-4 whitespace-nowrap"><?= $spesaAggiornata['date'] ?></td>
+                <td class="px-6 py-4 whitespace-nowrap"><?= $spesaAggiornata['importo'] ?></td>
+                <td class="px-6 py-4 whitespace-nowrap"><?= $spesaAggiornata['Id_tipo'] ?></td>
+                <td class="px-6 py-4 whitespace-nowrap"><p><a href="lista.php?action=delete&id=<?= $spesaAggiornata['id'] ?>"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M10 12V17" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M14 12V17" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M4 7H20" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></p></td>
+                <td class="px-6 py-4 whitespace-nowrap"><button class="btn btn-link" onclick="openModal('<?= $spesaAggiornata['id'] ?>', '<?= $spesaAggiornata['descrizione'] ?>', '<?= $spesaAggiornata['date'] ?>', '<?= $spesaAggiornata['importo'] ?>', '<?= $spesaAggiornata['Id_tipo'] ?>')"> <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.1497 7.93997L8.27971 19.81C7.21971 20.88 4.04971 21.3699 3.27971 20.6599C2.50971 19.9499 3.06969 16.78 4.12969 15.71L15.9997 3.84C16.5478 3.31801 17.2783 3.03097 18.0351 3.04019C18.7919 3.04942 19.5151 3.35418 20.0503 3.88938C20.5855 4.42457 20.8903 5.14781 20.8995 5.90463C20.9088 6.66146 20.6217 7.39189 20.0997 7.93997H20.1497Z" stroke="#0bff00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M21 21H12" stroke="#0bff00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button></td>
+            </tr>
+            <?php endif; ?>
+            <!-- Render other expenses -->
             <?php if (isset($spesePrec) && is_array($spesePrec) && count($spesePrec) > 0): ?>
             <?php foreach ($spesePrec as $s): ?>
             <tr>
@@ -41,26 +56,10 @@
                 <td class="px-6 py-4 whitespace-nowrap"><?= $s['importo'] ?></td>
                 <td class="px-6 py-4 whitespace-nowrap"><?= $s['Id_tipo'] ?></td>
                 <td class="px-6 py-4 whitespace-nowrap"><p><a href="lista.php?action=delete&id=<?= $s['id'] ?>"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M10 12V17" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M14 12V17" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M4 7H20" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></p></td>
-                <td class="px-6 py-4 whitespace-nowrap"><button class="btn btn-link" onclick="openModal('<?= $s['id'] ?>', '<?= $s['descrizione'] ?>', '<?= $s['date'] ?>', '<?= $s['importo'] ?>', '<?= $s['Id_tipo'] ?>')"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.1497 7.93997L8.27971 19.81C7.21971 20.88 4.04971 21.3699 3.27971 20.6599C2.50971 19.9499 3.06969 16.78 4.12969 15.71L15.9997 3.84C16.5478 3.31801 17.2783 3.03097 18.0351 3.04019C18.7919 3.04942 19.5151 3.35418 20.0503 3.88938C20.5855 4.42457 20.8903 5.14781 20.8995 5.90463C20.9088 6.66146 20.6217 7.39189 20.0997 7.93997H20.1497Z" stroke="#0bff00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M21 21H12" stroke="#0bff00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button></td>
+                <td class="px-6 py-4 whitespace-nowrap"><button class="btn btn-link" onclick="openModal('<?= $s['id'] ?>', '<?= $s['descrizione'] ?>', '<?= $s['date'] ?>', '<?= $s['importo'] ?>', '<?= $s['Id_tipo'] ?>')"> <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.1497 7.93997L8.27971 19.81C7.21971 20.88 4.04971 21.3699 3.27971 20.6599C2.50971 19.9499 3.06969 16.78 4.12969 15.71L15.9997 3.84C16.5478 3.31801 17.2783 3.03097 18.0351 3.04019C18.7919 3.04942 19.5151 3.35418 20.0503 3.88938C20.5855 4.42457 20.8903 5.14781 20.8995 5.90463C20.9088 6.66146 20.6217 7.39189 20.0997 7.93997H20.1497Z" stroke="#0bff00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M21 21H12" stroke="#0bff00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button></td>
             </tr>
             <?php endforeach; ?>
             <?php endif; ?>
-
-
-
-            <?php if (isset($spese) && is_array($spese) && count($spese) > 0): ?>
-            <?php foreach ($spese as $s): ?>
-            <tr>
-                <td class="px-6 py-4 whitespace-nowrap"><?= $s['descrizione'] ?></td>
-                <td class="px-6 py-4 whitespace-nowrap"><?= $s['date'] ?></td>
-                <td class="px-6 py-4 whitespace-nowrap"><?= $s['importo'] ?></td>
-                <td class="px-6 py-4 whitespace-nowrap"><?= $s['Id_tipo'] ?></td>
-                <td><a href="lista.php?action=delete&id=<?= $s['id'] ?>">Elimina</a></td>
-                <td><button class="btn btn-link" onclick="openModal('<?= $s['id'] ?>', '<?= $s['descrizione'] ?>', '<?= $s['date'] ?>', '<?= $s['importo'] ?>', '<?= $s['Id_tipo'] ?>')">Modifica</button></td>
-            </tr>
-            <?php endforeach; ?>
-            <?php endif; ?>
-
             </tbody>
         </table>
     </div>
