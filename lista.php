@@ -10,6 +10,14 @@ $template = new League\Plates\Engine('templates', 'tpl');
 $username = $_SESSION['username'];
 $id = UserRepository::getID($username);
 
+// Carica le spese precedenti solo se necessario
+$spesePrec = null;
+if (!isset($_GET['action']) || $_GET['action'] !== 'back') {
+    $spesePrec = \Model\NoteRepository::getSpeseByIdUtente($id);
+}
+
+$tipologie = \Model\TipologiaRepository::listAll();
+
 // Gestione delle azioni
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -38,16 +46,22 @@ if (isset($_GET['action'])) {
                 $importo = $_POST['importo'];
                 $id_tipo = $_POST['tipologia'];
 
-                // Ottieni l'ID dell'utente dal repository degli utenti
-                $id = \Model\UserRepository::getID($username);
-
-                $idSpesa = \Model\NoteRepository::getIDSpesa($descrizione, $data, $importo, $id, $id_tipo);
+                $idSpesa = $_GET['id'];
 
                 // Modifica la spesa
                 \Model\NoteRepository::ModificaSpesa($idSpesa, $descrizione, $data, $importo, $id, $id_tipo);
 
-                // Redirect alla pagina lista dopo l'aggiunta della spesa
-                header('Location: lista.php');
+                // Ottieni le informazioni aggiornate della spesa
+                $spesaAggiornata = \Model\NoteRepository::getSpesaById($idSpesa);
+
+                // Passa le variabili al template per il rendering
+                echo $template->render('lista', [
+                    'username' => $username,
+                    'spesePrec' => $spesePrec,
+                    'tipologie' => $tipologie,
+                    'spesaAggiornata' => $spesaAggiornata
+                ]);
+
                 exit();
             } catch (Exception $e) {
                 // Gestisci eventuali errori
@@ -58,13 +72,7 @@ if (isset($_GET['action'])) {
     }
 }
 
-// Carica le spese precedenti solo se necessario
-$spesePrec = null;
-if (!isset($_GET['action']) || $_GET['action'] !== 'back') {
-    $spesePrec = \Model\NoteRepository::getSpeseByIdUtente($id);
-}
 
-$tipologie = \Model\TipologiaRepository::listAll();
 
 // Passa le variabili al template per il rendering
 echo $template->render('lista', [
@@ -72,3 +80,4 @@ echo $template->render('lista', [
     'spesePrec' => $spesePrec,
     'tipologie' => $tipologie
 ]);
+?>

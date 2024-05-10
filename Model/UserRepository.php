@@ -156,6 +156,15 @@ class UserRepository
     }
 
 
+    public static function rimuoviUtente($id)
+    {
+        $pdo = Connection::getInstance();
+        $sql = 'DELETE FROM users WHERE id = :id';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':id' => $id]);
+    }
+
+
 
 
 

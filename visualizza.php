@@ -29,6 +29,13 @@ if (isset($_GET['action']) && $_GET['action'] == 'back') {
 
     ]);
     exit(0);  // Exit after rendering to stop further script execution
+}if (isset($_GET['action']) && $_GET['action'] == 'delete') {
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        \Model\UserRepository::rimuoviUtente($id);
+        header('Location: visualizza.php?query=1');
+        exit();
+    }
 }
 
 
