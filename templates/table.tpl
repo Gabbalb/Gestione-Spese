@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Nota Spese</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
@@ -21,14 +22,12 @@
             </nav>
 
             <div class="flex items-center gap-4">
-                <div class="sm:flex sm:gap-4">
-                    <a
-                            class=" text-white block rounded-md bg-blue-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-700"
-                            href="index.php"
-                    >
-                        <p class="no-underline ">Logout</p>
-                    </a>
-                </div>
+                <a href="visualizza.php?action=back" class="flex items-center justify-center w-8 h-8 text-white bg-blue-500 rounded hover:bg-blue-600">
+                    <button class="text-white"><i class="fa fa-arrow-left"></i></button>
+                </a>
+                <a href="index.php?action=logout" class="flex items-center justify-center w-8 h-8 text-white bg-blue-500 rounded hover:bg-blue-600">
+                    <button class="text-white"><i class="icon icon-share"></i></button>
+                </a>
             </div>
         </div>
     </div>
@@ -37,10 +36,10 @@
 <div class="p-6  max-w-screen-xl mx-auto px-4 md:px-8">
     <div class="max-w-lg">
         <h3 class="text-gray-800 text-xl font-bold sm:text-2xl">
-            Team members
+
         </h3>
         <p class="text-gray-600 mt-2">
-            Ecco la lista di tutti gli utenti
+
         </p>
     </div>
     <div class="mt-12 shadow-sm border rounded-lg overflow-x-auto">
@@ -66,7 +65,5 @@
         </table>
     </div>
 </div>
-
-<p><-- <a href="visualizza.php?action=back">Torna alla lista</a></p>
 </body>
 </html>

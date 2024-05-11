@@ -98,7 +98,7 @@
                         </select>
                     </div>
                     <div class="flex items-center justify-between p-5">
-                        <button class="px-4 py-2 bg-blue-500 text-white text-base font-medium rounded-md w-auto hover:bg-blue-600">Save</button>
+                        <a href="lista.php?action=modify&id=<?= $s['id'] ?>"><button class="px-4 py-2 bg-blue-500 text-white text-base font-medium rounded-md w-auto hover:bg-blue-600">Save</button></a>
                         <button type="button" class="px-4 py-2 bg-white text-base rounded-md border w-auto text-gray-700 hover:bg-gray-100" onclick="closeModal()">Cancel</button>
                     </div>
                 </form>
