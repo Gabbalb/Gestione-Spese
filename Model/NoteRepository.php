@@ -106,6 +106,12 @@ class NoteRepository
         }
     }
 
+    /*
+     public static function ModificaSpesa($id_spesa, $descrizione, $data, $importo, $id_user, $id_tipo): void
+    {
+        self::aggiungiSpesa($descrizione, $data, $importo, $id_user, $id_tipo);
+        self::cancellaNotebyId($id_spesa);
+    }*/
 
 
 

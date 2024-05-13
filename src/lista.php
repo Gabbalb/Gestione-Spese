@@ -42,7 +42,6 @@ if (isset($_GET['action'])) {
 
                 // Modifica la spesa
                 \Model\NoteRepository::ModificaSpesa($idSpesa, $descrizione, $data, $importo, $id, $id_tipo);
-
                 // Ottieni le informazioni aggiornate della spesa
                 $spesaAggiornata = \Model\NoteRepository::getSpesaById($idSpesa);
 
