@@ -122,68 +122,7 @@
         document.getElementById('modal').style.display = 'none';
     }
 </script>
- <!-- <script>
-    function sortTable(header) {
-        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-        table = document.getElementById("table-body");
-        switching = true;
-        // Set the sorting direction to ascending:
-        dir = header.getAttribute("data-sort-direction");
 
-        // Make a loop that will continue until no switching has been done:
-        while (switching) {
-            // Start by saying: no switching is done:
-            switching = false;
-            rows = table.getElementsByTagName("TR");
-
-            // Loop through all table rows (except the first, which contains table headers):
-            for (i = 0; i < rows.length - 1; i++) {
-                // Start by saying there should be no switching:
-                shouldSwitch = false;
-                // Get the two elements to compare, one from current row and the next:
-                x = rows[i].getElementsByTagName("TD")[header.dataset.column];
-                y = rows[i + 1].getElementsByTagName("TD")[header.dataset.column];
-
-                // Check if the two rows should switch place:
-                if (dir == "asc") {
-                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                    }
-                } else if (dir == "desc") {
-                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                        shouldSwitch= true;
-                        break;
-                    }
-                }
-            }
-            if (shouldSwitch) {
-                // If a switch has been marked, make the switch and mark the switch is done:
-                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                switching = true;
-                // Each time a switch is done, increase this count:
-                switchcount ++;
-            } else {
-                // If no switching has been done AND the direction is "asc",
-                // set the direction to "desc" and run the while loop again.
-                if (switchcount == 0 && dir == "asc") {
-                    dir = "desc";
-                    header.setAttribute("data-sort-direction", "desc");
-                    switching = true;
-                }
-            }
-        }
-    }
-
-    document.querySelectorAll('.sortable').forEach(function(header) {
-        header.addEventListener('click', function() {
-            sortTable(header);
-            // Toggle sort direction for the next click
-            header.setAttribute("data-sort-direction", header.getAttribute("data-sort-direction") === "asc" ? "desc" : "asc");
-        });
-    });
-</script> -->
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
