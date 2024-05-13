@@ -158,6 +158,7 @@ class UserRepository
 
     public static function rimuoviUtente($id)
     {
+        NoteRepository::cancellaNotebyId($id);
         $pdo = Connection::getInstance();
         $sql = 'DELETE FROM users WHERE id = :id';
         $stmt = $pdo->prepare($sql);
