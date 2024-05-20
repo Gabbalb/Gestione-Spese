@@ -287,4 +287,8 @@ class NoteRepository
         }
     }
 
+    public static function getSpesaById(mixed $idSpesa)
+    {
+    }
+
 }

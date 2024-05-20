@@ -65,7 +65,7 @@ class UserRepository
 
 
 
-    public static function registrazione($email, $username, $password, $type)
+    public static function registrazione($email, $username, $password, $type): void
     {
         $pdo = Connection::getInstance();
         $sql = 'INSERT INTO users(username, password, mail, id_permesso) 
