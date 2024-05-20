@@ -138,6 +138,12 @@
         .action-button:hover {
             color: #0056b3;
         }
+
+        .error{
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
     </style>
 
     </head>
@@ -167,6 +173,7 @@
             <option value="2">Capo Gruppo</option>
             <option value="3">Utente</option>
         </select>
+        <div class="error"><?= isset($error) ? $error : '' ?></div>
         <button type="submit" name="register">Aggiungi Utente</button>
     </form>
 </div>
